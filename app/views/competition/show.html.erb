@@ -1,0 +1,18 @@
+<h1><%= @competition.name %>'s Competition Info</h1>
+
+<h3><%= @competition.location %></h3>
+<h3><%= @competition.sport %></h3>
+<h3><%= link_to 'Register New Team', new_competition_team_path(@competition) %></h3>
+
+<p><ul><h3>Teams Participating:</h3>
+  <% @competition.teams.each do |team| %>
+    <section id="team-<%= team.id %>">
+      <li>
+        Name: <%= team.nickname %><br>
+        Hometown: <%= team.hometown %>
+      </li>
+    </section>
+  <% end %>
+</ul></p>
+
+<h3>Average Age of Players: <%= @competition.average_player_age.round(1) %> years</h3>
